@@ -27,5 +27,11 @@ app.controller('ActiveCtrl', function ($scope, Todos, Models) {
 app.controller('CompletedCtrl', function ($scope, Todos) {
     $scope.todos = Todos.completed;
 
+    $scope.getTotalTodosCompleted = function () {
+        return $scope.todos.length;
+    };
+
+
+
 });
 
