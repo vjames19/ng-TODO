@@ -40,5 +40,32 @@ app.controller('CompletedCtrl', function ($scope, Todo) {
     $scope.getTotalTodosCompleted = function () {
         return $scope.todos.length;
     };
+
+    $scope.removeAllCompleted = function () {
+        $scope.todos.forEach(function (todo) {
+            todo.$remove();
+        })
+
+        $scope.todos = [];
+    };
 });
 
+app.controller('NavCtrl', function ($scope) {
+    $scope.links = [
+        {fragment: "#/active", text: 'Active', active: true},
+        {fragment: "#/completed", text: "Completed", active: false}
+    ];
+
+    $scope.activate = function (link) {
+        $scope.links.forEach(function (l) {
+            l.active = false;
+        });
+
+        link.active = true;
+    };
+
+    $scope.getActive = function (link) {
+        return link.active ? 'active' : '';
+    };
+
+});

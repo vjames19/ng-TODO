@@ -1,1 +1,12 @@
 <h2>Total completed: {{getTotalTodosCompleted()}}</h2>
+<ul class="unstyled">
+    <li ng-repeat="todo in todos">
+        {{todo.text}}
+    </li>
+</ul>
+<!--<table class="table table-bordered">
+    <tr ng-repeat="todo in todos"><td>{{todo.text}}<td><a href="" ng-click="remove()"><i class="icon-remove"></i> </a></td> </td></tr>
+</table>-->
+<button class="btn btn-danger" ng-disabled="getTotalTodosCompleted() <=0" ng-click="removeAllCompleted()"><i
+        class="icon-trash"></i> Remove all completed
+</button>

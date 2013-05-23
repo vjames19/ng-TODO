@@ -8,16 +8,18 @@
 
 </head>
 <body>
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-inverse" ng-controller="NavCtrl">
     <div class="navbar-inner">
-        <a class="brand">ng-TODO</a>
+        <a class="brand">Angular-TODO</a>
+        <ul class="nav">
+            <li ng-repeat="link in links" ng-class="getActive(link)">
+                <a ng-href="{{link.fragment}}" ng-click="activate(link)">{{link.text}}</a>
+            </li>
+        </ul>
     </div>
 
 </div>
-<ul class="menu">
-    <li><a href="#/active">active</a></li>
-    <li><a href="#/completed">completed</a></li>
-</ul>
+
 
 <div ng-view class="well"></div>
 
@@ -31,5 +33,6 @@
 <script src="js/filters.js"></script>
 <script src="js/directives.js"></script>
 <script type="text/javascript" src="lib/ui-bootstrap.js"></script>
+<script type="text/javascript" src="lib/angular/angular-resource.js"></script>
 </body>
 </html>
