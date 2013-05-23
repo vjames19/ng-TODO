@@ -2,13 +2,13 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers',['myApp.services']);
+angular.module('myApp.controllers', ['myApp.services']);
 
-app.controller('ActiveCtrl',function($scope, Todos){
-   $scope.todos = Todos.active;
+app.controller('ActiveCtrl', function ($scope, Todos, Models) {
+    $scope.todos = Todos.active;
 
     $scope.remaining = function () {
-        return $scope.todos.filter(function(todo){
+        return $scope.todos.filter(function (todo) {
             return !todo.done;
         }).length;
     };
@@ -18,13 +18,13 @@ app.controller('ActiveCtrl',function($scope, Todos){
     };
 
     $scope.addTodo = function () {
-        Todos.addTodo($scope.inputTodoText,$scope.todos);
+        Todos.addTodo($scope.inputTodoText, $scope.todos);
         $scope.inputTodoText = '';
 
     };
 });
 
-app.controller('CompletedCtrl',function($scope,Todos){
+app.controller('CompletedCtrl', function ($scope, Todos) {
     $scope.todos = Todos.completed;
 
 });
