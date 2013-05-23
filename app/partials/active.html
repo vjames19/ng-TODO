@@ -1,20 +1,23 @@
 <head>
     <style>
-        .done-true{
+        .done-true {
             text-decoration: line-through;
-            color:grey;
+            color: grey;
         }
     </style>
 </head>
 <h2>{{remaining()}} of {{getTotalActive()}}</h2>
 <ul class="unstyled">
     <li ng-repeat="todo in todos" class="done-{{todo.done}}">
-        <input type="checkbox" ng-model="todo.done" />
+        <input type="checkbox" ng-model="todo.done"/>
         {{todo.text}}
     </li>
 </ul>
 <form class="input-append form-inline">
     <input class="input-large" type="text" placeholder="What needs to be done?" ng-model="inputTodoText"/>
-    <button class="btn btn-success" ng-disabled="!inputTodoText" ng-click="addTodo()"><i class="icon-plus-sign"></i>Add</button>
+    <button class="btn btn-success" ng-disabled="!inputTodoText" ng-click="addTodo()"><i class="icon-plus-sign"></i>Add
+    </button>
 </form><br>
-<button class="btn btn-danger" ng-disabled="remaining() == getTotalActive()" ng-click="removeCompleted()"><i class="icon-trash"></i> Remove completed</button>
+<button class="btn btn-danger" ng-disabled="remaining() == getTotalActive()" ng-click="removeCompleted()"><i
+        class="icon-trash"></i> Remove completed
+</button>
