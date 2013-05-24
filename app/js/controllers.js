@@ -44,7 +44,7 @@ app.controller('CompletedCtrl', function ($scope, Todo) {
     $scope.removeAllCompleted = function () {
         $scope.todos.forEach(function (todo) {
             todo.$remove();
-        })
+        });
 
         $scope.todos = [];
     };
@@ -63,9 +63,4 @@ app.controller('NavCtrl', function ($scope) {
 
         link.active = true;
     };
-
-    $scope.getActive = function (link) {
-        return link.active ? 'active' : '';
-    };
-
 });
