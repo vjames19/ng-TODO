@@ -13,8 +13,8 @@
     <div class="navbar-inner">
         <a class="brand">Angular-TODO</a>
         <ul class="nav">
-            <li ng-repeat="link in links" ng-class="{'active' : link.active}">
-                <a ng-href="{{link.fragment}}" ng-click="activate(link)">{{link.text}}</a>
+            <li ng-repeat="link in links" ng-class="{'active' : getClass(link)}">
+                <a ng-href="{{link.fragment}}">{{link.text}}</a>
             </li>
         </ul>
     </div>

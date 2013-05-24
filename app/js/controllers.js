@@ -50,7 +50,7 @@ app.controller('CompletedCtrl', function ($scope, Todo) {
     };
 });
 
-app.controller('NavCtrl', function ($scope) {
+app.controller('NavCtrl', function ($scope, $location) {
     $scope.links = [
         {fragment: "#/active", text: 'Active', active: true},
         {fragment: "#/completed", text: "Completed", active: false}
@@ -62,5 +62,9 @@ app.controller('NavCtrl', function ($scope) {
         });
 
         link.active = true;
+    };
+
+    $scope.getClass = function (link) {
+        return link.fragment.substring(1) === $location.path();
     };
 });
